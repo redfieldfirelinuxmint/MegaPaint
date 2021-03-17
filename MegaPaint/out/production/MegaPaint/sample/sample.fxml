@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="800.0" spacing="10.0" style="-fx-background-color: BLUE;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="titulo" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="56.0" prefWidth="248.0" text="PaintFX" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Loma Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="tamanio" max="50.0" min="2.0" onDragDetected="#cambiarTamanio" value="10.0" />
+                  <Button fx:id="cuadrado" alignment="CENTER" mnemonicParsing="false" onAction="#cambiarACuadrado" onMouseEntered="#enteredAndExited" onMouseExited="#enteredAndExited" style="-fx-background-color: WHITE; -fx-background-radius: 50px;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/stop.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="linea" alignment="CENTER" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" onAction="#cambiarALinea" onMouseEntered="#enteredAndExited" onMouseExited="#enteredAndExited" style="-fx-background-color: WHITE; -fx-background-radius: 50px;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/remove.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="circulo" alignment="CENTER" layoutX="173.0" layoutY="10.0" mnemonicParsing="false" onAction="#cambiarACirculo" onMouseEntered="#enteredAndExited" onMouseExited="#enteredAndExited" style="-fx-background-color: WHITE; -fx-background-radius: 50px;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/dry-clean(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="borrar" alignment="CENTER" layoutX="179.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#cambiarABorrar" onMouseEntered="#enteredAndExited" onMouseExited="#enteredAndExited" style="-fx-background-color: WHITE; -fx-background-radius: 50px;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/double-sided-eraser.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="pincel" alignment="CENTER" layoutX="179.0" layoutY="10.0" mnemonicParsing="false" onAction="#cambiarAPincel" onMouseEntered="#enteredAndExited" onMouseExited="#enteredAndExited" style="-fx-background-color: WHITE; -fx-background-radius: 50px;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/pincel.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="193.0" layoutY="10.0" mnemonicParsing="false" onMouseEntered="#enteredAndExited" onMouseExited="#enteredAndExited" style="-fx-background-color: WHITE; -fx-background-radius: 50px;">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/floppy-disk.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ColorPicker fx:id="colorPicker" onAction="#cambiarColor" prefWidth="170.0" style="-fx-background-color: WHITE;" />
+                  <ComboBox fx:id="comboBox" prefWidth="150.0" style="-fx-background-color: WHITE;">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </top>
+         <center>
+            <Canvas fx:id="lienzo" height="650.0" nodeOrientation="INHERIT" onMouseClicked="#clickFigura" onMouseDragged="#arrastrar" width="650.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </Canvas>
+         </center>
+         <left>
+            <Pane prefWidth="10.0" style="-fx-background-color: BLUE;" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefWidth="10.0" style="-fx-background-color: BLUE;" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <Pane prefHeight="10.0" style="-fx-background-color: BLUE;" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
